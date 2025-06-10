@@ -1,0 +1,123 @@
+body {
+    margin: 0;   
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fondo degradado animado */
+    background: linear-gradient(120deg, #000000 0%, #3a0ca3 50%, #f72585 100%);
+    background-size: 200% 200%;
+    animation: fondoAnimado 8s ease-in-out infinite;
+    overflow: hidden;
+}
+/* Animación del fondo */
+@keyframes fondoAnimado {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Corazones decorativos */
+.particle {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    animation: flotar 12s linear infinite;
+}
+.particle::before,
+.particle::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.particle::before {
+    left: 0;
+    top: 0;
+}
+.particle::after {
+    left: 30px;
+    top: 0;
+}
+
+/* Colores y posiciones para cada corazón */
+.p1 { top: 10%; left: 15%; animation-delay: 0s; }
+.p1::before, .p1::after { background: #f72585; }
+
+.p2 { top: 70%; left: 80%; animation-delay: 2s; transform: scale(0.7);}
+.p2::before, .p2::after { background: #7209b7; }
+
+.p3 { top: 40%; left: 60%; animation-delay: 4s; transform: scale(1.2);}
+.p3::before, .p3::after { background: #4361ee; }
+
+.p4 { top: 80%; left: 25%; animation-delay: 6s; transform: scale(0.9);}
+.p4::before, .p4::after { background: #b5179e; }
+
+.p5 { top: 20%; left: 70%; animation-delay: 8s; transform: scale(0.6);}
+.p5::before, .p5::after { background: #4cc9f0; }
+
+/* Forma de corazón */
+.particle {
+    transform: rotate(-45deg);
+}
+.particle::before,
+.particle::after {
+    box-shadow: 0 0 40px rgba(0,0,0,0.1);
+}
+
+.hearth {
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    position: relative;
+    transform: rotate(45deg);
+    box-shadow: -20px 20px 150px #f20404;
+    animation: palpitar 0.5s linear infinite alternate;
+}
+.contenido {
+    position: fixed;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+}
+h2 {
+    color: white;
+}
+
+@keyframes palpitar {
+0%{transform: rotate(45deg) scale(1.10);}
+80%{transform: rotate(45deg) scale(1.0);}
+100%{transform: rotate(45deg) scale(0.8);}
+}
+
+.hearth::before {
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(159, 46, 182);
+    right: 50%;
+    border-radius: 50%;
+    box-shadow: 20px 20px 150px #f20404;
+
+}
+
+.hearth::after {
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    top: -50%;
+    border-radius: 50%;
+    box-shadow: 20px 20px 150px #f20404;
+    
+}
